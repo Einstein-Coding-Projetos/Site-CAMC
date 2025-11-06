@@ -1,4 +1,4 @@
-# Site Oficial do CAMC (Centro Acadêmico Marie Curie)
+# Site Oficial do CAMC (Centro Acadêmico Marie Curie) 🧡
 Sobre o Projeto: 
 Site Oficial do CAMC é um projeto que visa centralizar as informações institucionais, otimizar a divulgação e gestão de eventos, e prover um ambiente seguro e organizado para a colaboração acadêmica, como a Biblioteca de Conteúdo do Aluno. O site está em desenvolvimento por integrantes do Einstein Coding em parceria com da gestão 2025 do CAMC, o site reforça nosso compromisso com a transparência na comunicação com os alunos. 
 # Funcionalidades Principais 
