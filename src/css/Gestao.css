@@ -1,0 +1,80 @@
+/* src/css/Gestao.css */
+
+/* --- VARIÁVEIS DE COR CAMC (Para referência) --- */
+/* Assumindo que:
+    --color-primary: #944516; 
+    --color-secondary: #c96e38; 
+    --color-text: #333333; 
+    --color-background-light: #f7f7f7;
+*/
+/* ------------------------------------------------ */
+
+.gestao {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Título da Página */
+.gestao-title {
+    text-align: center;
+    color: var(--color-primary, #944516);
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    border-bottom: 3px ;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Seção de cada Gestão (Ex: Gestão 2025, Gestão 2024) */
+.gestao-section {
+    margin-bottom: 3.5rem;
+    padding: 20px;
+    background-color: var(--color-background-light, #f7f7f7);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.gestao-section h2 {
+    color: var(--color-primary, #944516);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Grade para a Lista de Membros */
+.membros-grid {
+    display: grid;
+    /* Define o layout: 4 ou 3 membros por linha, dependendo do tamanho da tela */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+/* Estilo do Card Individual do Membro */
+.membro-card {
+    text-align: center;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.membro-card img {
+    width: 150px; /* Tamanho da foto do membro */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%; /* Foto redonda */
+    border: 3px solid var(--color-secondary, #c96e38);
+    margin-bottom: 10px;
+}
+
+.membro-card h3 {
+    font-size: 1.2rem;
+    color: var(--color-text, #333);
+    margin: 5px 0 3px 0;
+}
+
+.membro-card p {
+    font-size: 0.95rem;
+    color: var(--color-primary, #944516); /* Cargo em destaque */
+    font-weight: bold;
+}

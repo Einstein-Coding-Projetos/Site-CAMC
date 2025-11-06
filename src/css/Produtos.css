@@ -1,0 +1,104 @@
+/* src/css/Produtos.css (Final com correção de centralização) */
+
+/* --- VARIÁVEIS DE COR CAMC (Para referência) --- */
+:root {
+    --color-primary: #944516; 
+    --color-secondary: #c96e38; 
+    --color-text: #333333; 
+    --color-background-light: #f7f7f7;
+    --color-border: #d4a58d;
+} 
+/* --------------------------------------------------------------------------------- */
+
+/* Estilo do contêiner principal da página de Produtos */
+.produtos {
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* CORREÇÃO CHAVE: Centraliza todo o conteúdo inline-block/texto do contêiner */
+    text-align: center; 
+}
+
+/* Título da Página (com estilo marrom e sublinhado) */
+.produtos-title {
+    color: var(--color-primary, #944516);
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    border-bottom: 3px ;
+    
+    /* Mantido: Faz o h1 ocupar apenas a largura do texto */
+    display: inline-block; 
+    
+    /* text-align: center é redundante aqui, mas não atrapalha */
+    text-align: center; 
+    
+    /* Removemos margin-left/right, pois o text-align: center do pai faz o trabalho */
+    padding-bottom: 10px;
+}
+
+/* Os restantes estilos de Produtos */
+.produtos h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-primary, #944516); 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para quando a lista de produtos estiver vazia */
+.produtos-empty {
+    /* Retiramos o text-align: center daqui, pois já está no .produtos */
+    padding: 4rem 2rem;
+    background-color: var(--color-background-light, #f7f7f7); 
+    border-radius: 8px;
+    border: 1px dashed var(--color-border, #d4a58d);
+    margin: 2rem auto;
+    max-width: 600px;
+    /* Aqui, margin auto funciona para centralizar o bloco .produtos-empty */
+}
+
+.produtos-empty h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--color-primary, #944516); 
+}
+
+.produtos-empty p {
+    color: var(--color-text, #333333); 
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Reaplicando a grade para a lista de produtos (cards-grid) */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    padding: 20px 0;
+    
+    /* Para garantir que a grade não herde o text-align: center, 
+       mas ainda centralize como um bloco completo. */
+    text-align: left; /* Restaura o alinhamento de texto dentro da grade */
+    width: 100%;
+    max-width: 1000px; /* Limite opcional para visualização */
+    margin: 0 auto; /* Centraliza a grade como um bloco */
+}
+
+/* Animação mantida */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cards-grid > * {
+    animation: fadeIn 0.3s ease-out forwards;
+}

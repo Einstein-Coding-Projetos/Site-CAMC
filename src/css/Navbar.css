@@ -1,0 +1,69 @@
+/* src/css/NavBar.css */
+
+/* --- VARIÁVEIS DE COR CAMC --- */
+/* Definidas aqui para garantir que o NavBar funcione */
+:root {
+    --color-primary: #944516; /* Laranja Terroso Principal (Fundo da Navbar) */
+    --color-secondary: #c96e38; /* Tom mais claro para destaque/hover */
+    --color-text-light: #ffffff; /* Cor do texto dos links (Branco) */
+}
+/* ------------------------------- */
+
+/* 1. Estilo Principal da Barra de Navegação */
+.navbar {
+  /* Fundo principal na cor terrosa opaca */
+  background-color: var(--color-primary); 
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+/* 2. Logotipo/Marca (Site CA) */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* MUITO IMPORTANTE: Garante que o texto e o link do logo usem cor clara (aparente) */
+.navbar-brand a, 
+.navbar-links a {
+    color: var(--color-text-light); /* FORÇA A COR BRANCA */
+    text-decoration: none; 
+}
+
+/* 3. Estilo dos Links de Navegação */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+/* Efeito Hover: O fundo muda para o tom secundário para dar destaque */
+.nav-link:hover {
+  background-color: var(--color-secondary); 
+  opacity: 1; /* Garante que não há transparência no hover */
+}
+
+/* 4. Responsividade */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  .navbar-links {
+    gap: 1rem;
+  }
+  .nav-link {
+    padding: 0.5rem;
+  }
+}

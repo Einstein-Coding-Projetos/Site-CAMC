@@ -1,0 +1,17 @@
+/* src/css/Eventos.css */
+
+/* Estilo para o contêiner principal da página de eventos */
+.eventos.container {
+    padding: 20px;
+    max-width: 1200px; /* Limita a largura do conteúdo central */
+    margin: 0 auto;
+}
+
+/* Estilo para a grade dos cards */
+.cards-grid {
+    display: grid;
+    /* Tenta colocar 3 cards por linha (ajustável) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; /* Espaçamento entre os cards */
+    padding: 20px 0;
+}
