@@ -1,80 +1,149 @@
 /* src/css/Gestao.css */
 
-/* --- VARIÁVEIS DE COR CAMC (Para referência) --- */
-/* Assumindo que:
-    --color-primary: #944516; 
-    --color-secondary: #c96e38; 
-    --color-text: #333333; 
+:root {
+    --color-primary: #944516;
+    --color-secondary: #c96e38;
+    --color-text: #333333;
     --color-background-light: #f7f7f7;
-*/
-/* ------------------------------------------------ */
-
-.gestao {
+  }
+  
+  .gestao {
     padding: 3rem 2rem;
-    max-width: 1200px;
+    max-width: 1500px; /* espaço pra 4 colunas */
     margin: 0 auto;
-}
-
-/* Título da Página */
-.gestao-title {
+  }
+  
+  /* Título */
+  .gestao-header {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .gestao-title {
     text-align: center;
-    color: var(--color-primary, #944516);
-    margin-bottom: 2rem;
-    font-size: 2.8rem;
-    border-bottom: 3px ;
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-/* Seção de cada Gestão (Ex: Gestão 2025, Gestão 2024) */
-.gestao-section {
-    margin-bottom: 3.5rem;
-    padding: 20px;
-    background-color: var(--color-background-light, #f7f7f7);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.gestao-section h2 {
-    color: var(--color-primary, #944516);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Grade para a Lista de Membros */
-.membros-grid {
+    color: var(--color-primary);
+    margin: 0 0 2.2rem 0;
+    font-size: 2.8rem;      /* intermediário */
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.4px;
+  }
+  
+  /* Seção */
+  .gestao-section {
+    margin-bottom: 3.2rem;
+    padding: 24px; /* intermediário */
+    background-color: var(--color-background-light);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  .gestao-sectionTitle {
+    color: var(--color-primary);
+    font-size: 2.05rem; /* intermediário */
+    font-weight: 800;
+    margin: 0 0 1.6rem 0;
+  }
+  
+  /* ✅ GRID: 4 lado a lado */
+  .membros-grid {
     display: grid;
-    /* Define o layout: 4 ou 3 membros por linha, dependendo do tamanho da tela */
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-}
-
-/* Estilo do Card Individual do Membro */
-.membro-card {
+    gap: 26px; /* intermediário */
+    grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
+  }
+  
+  /* Card intermediário */
+  .membro-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px 16px 18px; /* intermediário */
     text-align: center;
-    padding: 15px;
-    background-color: #ffffff;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.membro-card img {
-    width: 150px; /* Tamanho da foto do membro */
-    height: 150px;
+  
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(201, 110, 56, 0.22);
+  
+    min-height: 340px; /* intermediário */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  /* Foto intermediária */
+  .membro-fotoWrap {
+    width: 170px;   /* era 240 no gigante, 150 no antigo */
+    height: 170px;
+    border-radius: 999px;
+  
+    padding: 5px;
+    background: #fff;
+    border: 3px solid var(--color-secondary);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  
+  .membro-foto {
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
     object-fit: cover;
-    border-radius: 50%; /* Foto redonda */
-    border: 3px solid var(--color-secondary, #c96e38);
-    margin-bottom: 10px;
-}
-
-.membro-card h3 {
-    font-size: 1.2rem;
-    color: var(--color-text, #333);
-    margin: 5px 0 3px 0;
-}
-
-.membro-card p {
-    font-size: 0.95rem;
-    color: var(--color-primary, #944516); /* Cargo em destaque */
-    font-weight: bold;
-}
+    display: block;
+  }
+  
+  /* Textos intermediários */
+  .membro-nome {
+    font-size: 1.25rem; /* intermediário */
+    color: var(--color-text);
+    margin: 8px 0 6px;
+    font-weight: 800;
+  }
+  
+  .membro-cargo {
+    font-size: 1.02rem; /* intermediário */
+    color: var(--color-primary);
+    font-weight: 800;
+    margin: 0;
+  }
+  
+  /* ===== Responsivo: 4 → 2 → 1 ===== */
+  @media (max-width: 1200px) {
+    .gestao {
+      max-width: 100%;
+    }
+  
+    .membros-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .gestao {
+      padding: 2.4rem 1.2rem;
+    }
+  
+    .gestao-title {
+      font-size: clamp(2.1rem, 7vw, 2.6rem);
+    }
+  
+    .gestao-sectionTitle {
+      font-size: 1.75rem;
+    }
+  
+    .membros-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  
+    .membro-card {
+      min-height: 320px;
+    }
+  
+    .membro-fotoWrap {
+      width: 155px;
+      height: 155px;
+    }
+  }
+  

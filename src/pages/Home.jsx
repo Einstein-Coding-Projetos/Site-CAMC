@@ -13,9 +13,9 @@ function Home() {
       <section className="hero-section">
         <div className="hero-content">
           <h1 className="hero-title">Centro Acadêmico Marie Curie</h1>
-          <p className="hero-subtitle">Engenharia Biomédica Einstein.</p>
+          <p className="hero-subtitle">Engenharia Biomédica Einstein</p>
           <a href="/eventos" className="hero-btn">
-            Ver Próximos Eventos
+            VER EVENTOS
           </a>
         </div>
       </section>

@@ -28,6 +28,8 @@
     margin-bottom: 2rem;
     font-size: 2.8rem;
     border-bottom: 3px ;
+    font-weight: 700;
+
     
     /* Mantido: Faz o h1 ocupar apenas a largura do texto */
     display: inline-block; 

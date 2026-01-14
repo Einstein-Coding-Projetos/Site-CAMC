@@ -1,5 +1,4 @@
 // src/pages/Gestao.jsx
-
 import React from "react";
 import "../css/Gestao.css";
 
@@ -18,15 +17,20 @@ import fotoMoscal from "../assets/moscal.png";
 import fotoPorro from "../assets/porro.png";
 import fotoEnzo from "../assets/enzo.png";
 
-const MembroCard = ({ nome, cargo, fotoUrl }) => (
-  <div className="membro-card">
-    <img src={fotoUrl} alt={`Foto de ${nome}`} />
-    <h3>{nome}</h3>
-    <p>{cargo}</p>
-  </div>
-);
+function MembroCard({ nome, cargo, fotoUrl }) {
+  return (
+    <article className="membro-card">
+      <div className="membro-fotoWrap">
+        <img className="membro-foto" src={fotoUrl} alt={`Foto de ${nome}`} />
+      </div>
 
-function Gestao() {
+      <h3 className="membro-nome">{nome}</h3>
+      <p className="membro-cargo">{cargo}</p>
+    </article>
+  );
+}
+
+export default function Gestao() {
   const gestaoAtual = [
     { nome: "Enzo Soldatelli", cargo: "Presidente", fotoUrl: fotoEnzo },
     { nome: "Daniel Karp", cargo: "Vice-Presidente", fotoUrl: fotoDaniel },
@@ -34,7 +38,7 @@ function Gestao() {
     { nome: "Isabella Porro", cargo: "Diretora de Marketing", fotoUrl: fotoPorro },
   ];
 
-  const gestaoPassada1 = [
+  const gestao2025 = [
     { nome: "Fellipe Godoy", cargo: "Presidente", fotoUrl: fotoGodoy },
     { nome: "Helena Duarte", cargo: "Vice-Presidente", fotoUrl: fotoHelena },
     { nome: "Felipe Martins", cargo: "Diretor de Eventos", fotoUrl: fotoMartins },
@@ -42,7 +46,7 @@ function Gestao() {
     { nome: "Manuela Somoza", cargo: "Diretora de Marketing", fotoUrl: fotoManu },
   ];
 
-  const gestaoPassada2 = [
+  const gestao2324 = [
     { nome: "Giulia Mello", cargo: "Presidente", fotoUrl: fotoGiulia },
     { nome: "Gabriella Froehlich", cargo: "Vice-Presidente", fotoUrl: fotoGabi },
     { nome: "Emily Braun", cargo: "Diretora de Eventos", fotoUrl: fotoEmily },
@@ -52,29 +56,27 @@ function Gestao() {
 
   const secoesGestao = [
     { titulo: "Gestão Atual (2026)", membros: gestaoAtual },
-    { titulo: "Gestão 2025", membros: gestaoPassada1 },
-    { titulo: "Gestão 2023-2024", membros: gestaoPassada2 },
+    { titulo: "Gestão 2025", membros: gestao2025 },
+    { titulo: "Gestão 2023-2024", membros: gestao2324 },
   ];
 
   return (
-    <div className="gestao">
-      <h1 className="gestao-title">Gestão do Centro Acadêmico</h1>
+    <main className="gestao">
+      <header className="gestao-header">
+        <h1 className="gestao-title">Gestões do Centro Acadêmico</h1>
+      </header>
 
       {secoesGestao.map((secao) => (
         <section key={secao.titulo} className="gestao-section">
-          <h2>{secao.titulo}</h2>
+          <h2 className="gestao-sectionTitle">{secao.titulo}</h2>
+
           <div className="membros-grid">
-            {secao.membros.map((membro, index) => (
-              <MembroCard
-                key={`${secao.titulo}-${index}`}
-                {...membro}
-              />
+            {secao.membros.map((membro) => (
+              <MembroCard key={`${secao.titulo}-${membro.nome}`} {...membro} />
             ))}
           </div>
         </section>
       ))}
-    </div>
+    </main>
   );
 }
-
-export default Gestao;
