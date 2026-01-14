@@ -26,6 +26,9 @@ import foto1GIRLS2 from "../assets/foto1GIRLS2.png";
 import foto2GIRLS2 from "../assets/foto2GIRLS2.png";
 import foto3GIRLS2 from "../assets/foto3GIRLS2.png";
 
+import foto1BIOSPARKS from "../assets/foto1BIOSPARKS.png"; 
+import foto2BIOSPARKS from "../assets/foto2BIOSPARKS.jpeg"; 
+
 
 export default function EventosCarrosel() {
   const eventos = useMemo(
@@ -76,8 +79,8 @@ export default function EventosCarrosel() {
         id: 7,
         titulo: "BIOSPARKS",
         data: "2025",
-        descricao: "?",
-        imagens: [foto1GIRLS2, foto2GIRLS2, foto3GIRLS2],
+        descricao: "Desafio de inovação com brainstorming de soluções, apresentações e avaliação por banca.",
+        imagens: [foto1BIOSPARKS, foto2BIOSPARKS],
       },
       {
         id: 8,
