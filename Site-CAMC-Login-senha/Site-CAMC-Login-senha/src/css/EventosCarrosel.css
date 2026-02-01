@@ -1,0 +1,266 @@
+/* src/css/EventosCarrosel.css */
+
+/* Garantia de consistência de tamanhos */
+.eventosCarrosel,
+.eventosCarrosel * {
+  box-sizing: border-box;
+}
+
+.eventosCarrosel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ====== CARROSSEL ====== */
+.carousel {
+  width: 100%;
+  max-width: 1400px;  /* era 1100px */
+  display: grid;
+  grid-template-columns: 72px 1fr 72px;
+  gap: 22px;
+  align-items: stretch;
+}
+
+
+/* ====== BOTÕES SETA (centralizados de verdade) ====== */
+.navBtn {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 999px;
+  border: 1px solid var(--color-secondary, #c96e38);
+  background: #fff;
+  color: var(--color-primary, #944516);
+
+  /* ✅ centraliza o símbolo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 40px;
+  line-height: 1; /* importantíssimo */
+  padding: 0;     /* importantíssimo */
+
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.navBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* (Opcional) micro-ajuste pra alguns browsers/fontes */
+.navBtn:active {
+  transform: translateY(0);
+}
+
+/* ====== CARD (tamanho fixo SEMPRE) ====== */
+.card {
+    width: 100%;
+    max-width: 1200px; /* era 980px */
+    margin: 0 auto;
+  
+    padding: 34px;     /* opcional: mais espaço interno */
+    height: 1000px;     /* era 680px */
+  
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+}
+
+/* header com altura reservada (título maior/menor não muda o card) */
+.cardHeader {
+  text-align: center;
+  min-height: 92px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary, #944516);
+
+  /* 🔒 corta se o título for grande demais */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardDate {
+  margin: 0;
+  color: var(--color-text, #333333);
+  font-size: 1.05rem;
+}
+
+/* ====== FOTO (slot fixo) ====== */
+.cardImageWrap {
+  width: 100%;
+  height: 620px; /* 🔒 slot fixo pra foto */
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  border: 1px solid rgba(201, 110, 56, 0.35);
+  background: var(--color-background-light, #f7f7f7);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  /* ✅ mantém tudo consistente mesmo com fotos diferentes */
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ====== DESCRIÇÃO (altura reservada) ====== */
+.cardDesc {
+  margin: 0;
+  text-align: center;
+  color: var(--color-text, #333333);
+  font-size: 1.1rem;
+  line-height: 1.5;
+
+  min-height: 72px; /* 🔒 reserva espaço */
+
+  /* 🔒 limita o texto e não muda altura do card */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ====== DOTS sempre no rodapé ====== */
+.dots {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 38px;
+  height: 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-secondary, #c96e38);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dot.active {
+  background: var(--color-primary, #944516);
+  border-color: var(--color-primary, #944516);
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 900px) {
+  .carousel {
+    max-width: 720px;
+    grid-template-columns: 56px 1fr 56px;
+  }
+
+  .navBtn {
+    width: 56px;
+    height: 56px;
+    font-size: 34px;
+  }
+
+  .card {
+    height: 660px; /* mantém fixo */
+    padding: 22px;
+  }
+
+  .cardImageWrap {
+    height: 320px;
+  }
+}
+
+@media (max-width: 720px) {
+  .carousel {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .navBtn {
+    width: 100%;
+    height: 46px;
+    border-radius: 12px;
+    font-size: 28px;
+  }
+
+  .card {
+    max-width: 100%;
+    height: 660px;
+  }
+}
+
+/* ===== Carrossel interno (fotos) ===== */
+.innerCarousel {
+  position: relative;
+}
+
+/* Botões pequenos por cima da foto */
+.innerBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(201, 110, 56, 0.55);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-primary, #944516);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+}
+
+.innerPrev { left: 12px; }
+.innerNext { right: 12px; }
+
+/* Dots das fotos, dentro da imagem */
+.innerDots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.innerDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 110, 56, 0.75);
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 0;
+}
+
+.innerDot.active {
+  background: var(--color-primary, #944516);
+  border-color: var(--color-primary, #944516);
+}

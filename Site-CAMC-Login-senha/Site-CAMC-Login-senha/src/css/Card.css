@@ -2,11 +2,16 @@
 
 /* Definição das variáveis de cor do CAMC */
 :root {
-    --color-primary: #944516; /* Laranja Terroso Principal */
-    --color-secondary: #c96e38; /* Um tom mais claro para botões/destaque */
-    --color-background: #f7f7f7; /* Fundo leve */
-    --color-text: #333333; /* Texto escuro */
-    --color-border: #d4a58d; /* Borda suave */
+    --color-primary: #944516;
+    /* Laranja Terroso Principal */
+    --color-secondary: #c96e38;
+    /* Um tom mais claro para botões/destaque */
+    --color-background: #f7f7f7;
+    /* Fundo leve */
+    --color-text: #333333;
+    /* Texto escuro */
+    --color-border: #d4a58d;
+    /* Borda suave */
 }
 
 /* 1. Estilo Básico do Card (Substitui .movie-card) */
@@ -24,6 +29,16 @@
     text-align: center;
 }
 
+.card-image {
+    width: 100%;
+    height: 200px;
+    /* Altura fixa para uniformidade */
+    object-fit: contain;
+    /* Garante que a imagem inteira apareça sem cortes */
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
@@ -31,7 +46,8 @@
 
 /* 2. Estilo das Informações (Substitui .movie-info) */
 .card-info {
-    padding: 0; /* O padding foi para o .card */
+    padding: 0;
+    /* O padding foi para o .card */
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -41,7 +57,8 @@
 
 .card-info h3 {
     font-size: 1.25rem;
-    color: var(--color-primary); /* Título na cor primária */
+    color: var(--color-primary);
+    /* Título na cor primária */
     margin-bottom: 5px;
 }
 
@@ -53,7 +70,8 @@
 
 /* 3. Estilo do Botão de Detalhes (Substitui .favorite-btn) */
 .details-btn {
-    margin-top: auto; /* Empurra o botão para o final do card */
+    margin-top: auto;
+    /* Empurra o botão para o final do card */
     padding: 10px 15px;
     background-color: var(--color-secondary);
     color: white;

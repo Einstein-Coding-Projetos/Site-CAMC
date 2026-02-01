@@ -1,61 +1,83 @@
-# 🚀 Getting started with Strapi
+# Site Oficial do CAMC (Centro Acadêmico Marie Curie) 🧡
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+## Sobre o Projeto
+O **Site Oficial do CAMC** é um projeto que visa centralizar as informações institucionais, otimizar a divulgação e gestão de eventos, e prover um ambiente seguro e organizado para a colaboração acadêmica, como a Biblioteca de Conteúdo do Aluno.
 
-### `develop`
+O site está em desenvolvimento por integrantes do **Einstein Coding** em parceria com a gestão 2025 do CAMC. O site reforça nosso compromisso com a transparência na comunicação com os alunos.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+## Funcionalidades Principais
+O projeto é dividido nos seguintes módulos chave:
 
-```
-npm run develop
-# or
-yarn develop
-```
+*   **Módulo Institucional:** Homepage, estatuto e contato.
+*   **Módulo de Gestão:** Informações sobre a gestão atual, passadas e futuras.
+*   **Módulo de Eventos (Agenda CA):** Listagem e detalhamento de eventos (Integrado com Strapi).
+*   **Módulo de Produtos:** Listagem (Catálogo) e detalhamento de produtos com Estoque em tempo real (Integrado com Strapi).
+*   **Módulo de Biblioteca Colaborativa (Área do Aluno):** Sistema de login, upload e busca de documentos.
+*   **Módulo Administrativo (Painel de Gestão):** Ferramenta interna (Strapi) para administrar conteúdo, eventos, produtos e biblioteca.
 
-### `start`
+## Tecnologias Utilizadas
+*   **Frontend:** React + Vite
+*   **Backend (CMS):** Strapi v5
+*   **Banco de Dados:** SQLite (Dev) / Postgres (Prod - a definir)
+*   **Estilização:** CSS Modular / Vanilla
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+## Como Executar o Projeto Localmente
 
-```
-npm run start
-# or
-yarn start
-```
+Para rodar este projeto em sua máquina para desenvolvimento e testes (Monorepo: Frontend + Backend juntos):
 
-### `build`
+### Pré-requisitos
+*   Node.js (versão 18 ou superior recomendada)
+*   NPM ou Yarn
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+### Instalação e Execução (Método Recomendado)
 
-```
-npm run build
-# or
-yarn build
-```
+1.  **Clone o repositório:**
+    ```bash
+    git clone [LINK_DO_SEU_REPOSITÓRIO]
+    cd nome-do-repositorio-camc
+    ```
 
-## ⚙️ Deployment
+2.  **Instale as dependências:**
+    Na raiz do projeto, execute:
+    ```bash
+    npm install
+    ```
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+3.  **Inicie o Servidor Local (Frontend + Strapi):**
+    Utilizamos um comando unificado para rodar ambos simultaneamente:
+    ```bash
+    npm run dev:all
+    ```
 
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+    *   **Site (Frontend):** [http://localhost:5173](http://localhost:5173)
+    *   **Painel Admin (Strapi):** [http://localhost:1337/admin](http://localhost:1337/admin)
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+### Execução Individual (Opcional)
+
+Caso queira rodar separadamente:
+
+*   **Backend (Strapi):**
+    ```bash
+    npm run develop
+    ```
+
+*   **Frontend:**
+    ```bash
+    cd Site-CAMC-Login-senha/Site-CAMC-Login-senha
+    npm run dev
+    ```
+
+## Como Contribuir
+
+1.  Faça um **Fork** do projeto.
+2.  Crie uma **Branch** para sua funcionalidade (`git checkout -b feature/NomeDaFuncionalidade`).
+3.  Faça o **Commit** de suas alterações (`git commit -m 'feat: Adiciona funcionalidade X'`).
+4.  Faça o **Push** para a Branch (`git push origin feature/NomeDaFuncionalidade`).
+5.  Abra um **Pull Request (PR)** descrevendo claramente as mudanças.
+
+---
+
+*React + Vite Template Info:*
+*This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.*

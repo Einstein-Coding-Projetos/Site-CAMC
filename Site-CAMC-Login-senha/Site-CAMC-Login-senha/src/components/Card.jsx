@@ -4,32 +4,36 @@ import "../css/Card.css";
 
 // O componente agora recebe 'data' para ser mais genérico
 // e ele precisa receber a 'description' dos seus eventos.
-function Card({ card }) {
+// O componente agora recebe 'showButton' para controlar o botão
+function Card({ card, showButton = true, onImageClick }) {
   return (
     <div className="card">
-      {/* REMOVIDA a tag <img> que estava causando o erro, 
-        pois ela usava a variável 'movie' e esperava a propriedade 'url' (que você não tem).
-      */}
-
-      {/* Exibe a imagem se existir */}
+      {/* Imagem do card se existir */}
       {card.image && (
-        <img src={card.image} alt={card.title} className="card-image" />
+        <img
+          src={card.image}
+          alt={card.title}
+          className="card-image"
+          onClick={() => showButton === false && onImageClick ? onImageClick(card.image) : null}
+          style={{ cursor: showButton === false && onImageClick ? 'pointer' : 'default' }}
+        />
       )}
 
       <div className="card-info">
         <h3>{card.title}</h3>
-        <p>{card.release_date}</p>
 
-        {/* Se existir uma descrição, exibe ela */}
-        {card.description && <p>{card.description}</p>}
-
-        {/* Exibe o estoque se existir (apenas para produtos) */}
-        {card.stock !== undefined && (
-          <p className="card-stock">
-            {card.stock > 0 ? `Estoque: ${card.stock} un.` : "Produto Indisponível"}
-          </p>
+        {/* Lógica: Se tiver subtítulo usa ele, senão usa o padrão de Data */}
+        {card.subtitle ? (
+          <p className="card-subtitle">{card.subtitle}</p>
+        ) : (
+          <p>Data: {card.release_date}</p>
         )}
+
+        {card.description && <p>{card.description}</p>}
       </div>
+
+      {/* Botão controlado pela prop showButton */}
+      {showButton && <button className="details-btn">Ver Detalhes</button>}
     </div>
   );
 }
