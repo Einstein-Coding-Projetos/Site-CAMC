@@ -1,113 +1,209 @@
-/* src/css/Produtos.css (Final com correção de centralização) */
+/* src/css/Produtos.css */
 
-/* --- VARIÁVEIS DE COR CAMC (Para referência) --- */
 :root {
-    --color-primary: #944516;
-    --color-secondary: #c96e38;
-    --color-text: #333333;
-    --color-background-light: #f7f7f7;
-    --color-border: #d4a58d;
+  --color-primary: #944516;
+  --color-secondary: #c96e38;
+  --color-text: #333333;
 }
 
-/* --------------------------------------------------------------------------------- */
-
-/* Estilo do contêiner principal da página de Produtos */
+/* ===== Estrutura igual Eventos ===== */
 .produtos {
-    padding: 2rem;
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 1200px;
-    margin: 0 auto;
-
-    /* CORREÇÃO CHAVE: Centraliza todo o conteúdo inline-block/texto do contêiner */
-    text-align: center;
+  padding: 3rem 2rem;
+  background: #ffffff;
 }
 
-/* Título da Página (com estilo marrom e sublinhado) */
+.produtos-container {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+/* título */
 .produtos-title {
-    color: var(--color-primary, #944516);
-    margin-bottom: 2rem;
-    font-size: 2.8rem;
-    border-bottom: 3px;
-    font-weight: 700;
-
-
-    /* Mantido: Faz o h1 ocupar apenas a largura do texto */
-    display: inline-block;
-
-    /* text-align: center é redundante aqui, mas não atrapalha */
-    text-align: center;
-
-    /* Removemos margin-left/right, pois o text-align: center do pai faz o trabalho */
-    padding-bottom: 10px;
+  text-align: center;
+  color: var(--color-primary, #944516);
+  margin: 0 0 2rem 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.4px;
 }
 
-/* Os restantes estilos de Produtos */
-.produtos h2 {
-    margin-bottom: 2rem;
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--color-primary, #944516);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+/* conteúdo centralizado */
+.produtos-content {
+  display: flex;
+  justify-content: center;
 }
 
-/* Estilo para quando a lista de produtos estiver vazia */
+/* empilha os cards grandes */
+.produtos-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+}
+
+/* ===== Card grande (moldura externa estilo Eventos) ===== */
+.produtos-frame {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  background: #f7f7f7;
+  border: 1.5px solid rgba(201, 110, 56, 0.35);
+  border-radius: 14px;
+  padding: 34px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+}
+
+/* título do card grande */
+.produtos-sectionTitle {
+  text-align: left;
+  color: var(--color-primary, #944516);
+  font-size: 2.05rem;
+  font-weight: 800;
+  margin: 0 0 1.6rem 0;
+}
+
+/* quando a seção não tiver itens */
 .produtos-empty {
-    /* Retiramos o text-align: center daqui, pois já está no .produtos */
-    padding: 4rem 2rem;
-    background-color: var(--color-background-light, #f7f7f7);
-    border-radius: 8px;
-    border: 1px dashed var(--color-border, #d4a58d);
-    margin: 2rem auto;
-    max-width: 600px;
-    /* Aqui, margin auto funciona para centralizar o bloco .produtos-empty */
+  margin: 0;
+  padding: 18px 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px dashed rgba(201, 110, 56, 0.35);
+  color: var(--color-text);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
-.produtos-empty h2 {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: var(--color-primary, #944516);
+/* ===== Grid de produtos (cards pequenos) ===== */
+.produtos-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
 }
 
-.produtos-empty p {
-    color: var(--color-text, #333333);
-    font-size: 1.1rem;
-    line-height: 1.6;
+/* Card pequeno (padrão) */
+.produto-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+
+  border: 1px solid rgba(201, 110, 56, 0.22);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+
+  min-height: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
-/* Reaplicando a grade para a lista de produtos (cards-grid) */
-/* Reaplicando a grade para a lista de produtos (cards-grid) */
-.cards-grid {
-    display: grid;
-    /* Reduzi para 220px para os cards ficarem menores conforme pedido */
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 25px;
-    padding: 20px 0;
+.produto-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
 
-    /* Para garantir que a grade não herde o text-align: center, 
-       mas ainda centralize como um bloco completo. */
-    text-align: left;
-    /* Restaura o alinhamento de texto dentro da grade */
+/* Moldura da imagem dentro do card (padrão) */
+.produto-imgWrap {
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 1 / 1;
+
+  border-radius: 16px;
+  padding: 10px;
+
+  background: #ffffff;
+  border: 2.5px solid var(--color-secondary, #c96e38);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.produto-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================================================
+   ✅ BIG (moletons): aumenta card + moldura + imagem
+   ========================================================= */
+
+.produto-card.produto-card--big {
+  min-height: 420px;
+  padding: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.produto-card.produto-card--big .produto-imgWrap {
+  width: 340px;
+  height: 340px;
+
+  max-width: none;
+  aspect-ratio: auto;
+
+  padding: 14px;
+  border-radius: 18px;
+}
+
+.produto-card.produto-card--big .produto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* =========================================================
+   ✅ COPO: menor ainda (mais delicado)
+   ========================================================= */
+
+   .produto-card.produto-card--copo {
+    min-height: 350px;  /* era 390 */
+    padding: 20px;
+  }
+  
+  .produto-card.produto-card--copo .produto-imgWrap {
+    width: 220px;   /* era 250 */
+    height: 285px;  /* era 320 */
+  
+    max-width: none;
+    aspect-ratio: auto;
+  
+    padding: 10px;  /* mais compacto */
+    border-radius: 16px;
+  }
+  
+  .produto-card.produto-card--copo .produto-img {
     width: 100%;
-    max-width: 1000px;
-    /* Limite opcional para visualização */
-    margin: 0 auto;
-    /* Centraliza a grade como um bloco */
-}
-
-/* Animação mantida */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+  
+  /* responsivo */
+  @media (max-width: 900px) {
+    .produto-card.produto-card--copo .produto-imgWrap {
+      width: 205px;
+      height: 265px;
     }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+  }
+  
+  @media (max-width: 700px) {
+    .produto-card.produto-card--copo .produto-imgWrap {
+      width: 190px;
+      height: 245px;
     }
-}
-
-.cards-grid>* {
-    animation: fadeIn 0.3s ease-out forwards;
-}
+  }
+  
