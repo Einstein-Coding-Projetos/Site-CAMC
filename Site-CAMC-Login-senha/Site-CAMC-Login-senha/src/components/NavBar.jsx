@@ -22,6 +22,9 @@ function NavBar() {
         <Link to="/eventos" className="nav-link">
           Eventos
         </Link>
+        <Link to="/agenda" className="nav-link">
+          Agenda
+        </Link>
       </div>
     </nav>
   );

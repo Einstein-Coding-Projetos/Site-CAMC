@@ -2,6 +2,7 @@ import "./css/App.css";
 // Importação de todos os componentes de página da pasta 'pages'
 import Home from "./pages/Home";
 import Eventos from "./pages/Eventos";
+import Agenda from "./pages/Agenda";
 import Gestao from "./pages/Gestao";
 import Produtos from "./pages/Produtos";
 import { Routes, Route } from "react-router-dom";
@@ -17,13 +18,16 @@ function App() {
           {/* Rota da Página Inicial (Home) */}
           <Route path="/" element={<Home />} />
 
-          {/* Nova Rota para Eventos */}
+          {/* Rota para Eventos (Carrossel) */}
           <Route path="/eventos" element={<Eventos />} />
+
+          {/* Nova Rota para Agenda (Strapi) */}
+          <Route path="/agenda" element={<Agenda />} />
 
           {/* Nova Rota para Gestão */}
           <Route path="/gestao" element={<Gestao />} />
 
-          {/* Rota para Produtos (que você usava como 'Favorites') */}
+          {/* Rota para Produtos */}
           <Route path="/produtos" element={<Produtos />} />
         </Routes>
       </main>
