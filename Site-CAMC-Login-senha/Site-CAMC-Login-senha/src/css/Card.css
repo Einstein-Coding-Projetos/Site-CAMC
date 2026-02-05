@@ -1,0 +1,97 @@
+/* src/css/Card.css */
+
+/* Definição das variáveis de cor do CAMC */
+:root {
+    --color-primary: #944516;
+    /* Laranja Terroso Principal */
+    --color-secondary: #c96e38;
+    /* Um tom mais claro para botões/destaque */
+    --color-background: #f7f7f7;
+    /* Fundo leve */
+    --color-text: #333333;
+    /* Texto escuro */
+    --color-border: #d4a58d;
+    /* Borda suave */
+}
+
+/* 1. Estilo Básico do Card (Substitui .movie-card) */
+.card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    /* Altura fixa para uniformidade */
+    object-fit: contain;
+    /* Garante que a imagem inteira apareça sem cortes */
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Estilo das Informações (Substitui .movie-info) */
+.card-info {
+    padding: 0;
+    /* O padding foi para o .card */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--color-text);
+}
+
+.card-info h3 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    /* Título na cor primária */
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* 3. Estilo do Botão de Detalhes (Substitui .favorite-btn) */
+.details-btn {
+    margin-top: auto;
+    /* Empurra o botão para o final do card */
+    padding: 10px 15px;
+    background-color: var(--color-secondary);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.details-btn:hover {
+    background-color: var(--color-primary);
+}
+
+/* 4. REMOÇÃO de Estilos de Filme/Overlay Não Usados */
+/* As classes .movie-poster, .movie-overlay, .favorite-btn, .rating-select, .user-rating foram removidas */
+
+/* 5. Responsividade */
+@media (max-width: 768px) {
+    .card {
+        font-size: 0.9rem;
+    }
+}
