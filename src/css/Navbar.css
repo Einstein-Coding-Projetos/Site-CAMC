@@ -1,69 +1,88 @@
-/* src/css/NavBar.css */
-
-/* --- VARIÁVEIS DE COR CAMC --- */
-/* Definidas aqui para garantir que o NavBar funcione */
+/* ================================
+   VARIÁVEIS CAMC
+================================ */
 :root {
-    --color-primary: #944516; /* Laranja Terroso Principal (Fundo da Navbar) */
-    --color-secondary: #c96e38; /* Tom mais claro para destaque/hover */
-    --color-text-light: #ffffff; /* Cor do texto dos links (Branco) */
+  --color-primary: #944516;
+  --color-secondary: #c96e38;
+  --color-text-light: #ffffff;
 }
-/* ------------------------------- */
 
-/* 1. Estilo Principal da Barra de Navegação */
+/* ================================
+   NAVBAR
+================================ */
 .navbar {
-  /* Fundo principal na cor terrosa opaca */
-  background-color: var(--color-primary); 
-  padding: 1rem 2rem;
+  background-color: var(--color-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Container interno (NÃO deixa full width) */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
-/* 2. Logotipo/Marca (Site CA) */
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
+/* ================================
+   BRAND
+================================ */
+.navbar-brand a {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--color-text-light);
+  text-decoration: none;
 }
 
-/* MUITO IMPORTANTE: Garante que o texto e o link do logo usem cor clara (aparente) */
-.navbar-brand a, 
-.navbar-links a {
-    color: var(--color-text-light); /* FORÇA A COR BRANCA */
-    text-decoration: none; 
-}
-
-/* 3. Estilo dos Links de Navegação */
+/* ================================
+   LINKS
+================================ */
 .navbar-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .nav-link {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0;
+  position: relative;
 }
 
-/* Efeito Hover: O fundo muda para o tom secundário para dar destaque */
+/* Hover sofisticado (linha discreta) */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transition: width 0.25s ease;
+}
+
 .nav-link:hover {
-  background-color: var(--color-secondary); 
-  opacity: 1; /* Garante que não há transparência no hover */
+  color: var(--color-text-light);
 }
 
-/* 4. Responsividade */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ================================
+   RESPONSIVO
+================================ */
 @media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
+  .navbar-container {
+    padding: 0.8rem 1.5rem;
   }
-  .navbar-brand {
-    font-size: 1.2rem;
-  }
+
   .navbar-links {
-    gap: 1rem;
-  }
-  .nav-link {
-    padding: 0.5rem;
+    gap: 1.5rem;
   }
 }
