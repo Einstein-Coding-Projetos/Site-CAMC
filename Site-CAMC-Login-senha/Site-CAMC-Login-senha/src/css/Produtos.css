@@ -65,19 +65,7 @@
   margin: 0 0 1.6rem 0;
 }
 
-/* quando a seção não tiver itens */
-.produtos-empty {
-  margin: 0;
-  padding: 18px 16px;
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px dashed rgba(201, 110, 56, 0.35);
-  color: var(--color-text);
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-/* ===== Grid de produtos (cards pequenos) ===== */
+/* ===== Grid de produtos ===== */
 .produtos-grid {
   display: grid;
   gap: 26px;
@@ -85,7 +73,7 @@
   align-items: stretch;
 }
 
-/* Card pequeno (padrão) */
+/* Card pequeno */
 .produto-card {
   background: #ffffff;
   border-radius: 14px;
@@ -97,10 +85,16 @@
   min-height: 260px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
+  gap: 12px;
+
   transition: transform 160ms ease, box-shadow 160ms ease;
+
+  position: relative; /* ✅ necessário pro badge */
+  overflow: hidden;   /* ✅ badge não vaza do card */
 }
 
 .produto-card:hover {
@@ -108,7 +102,32 @@
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* Moldura da imagem dentro do card (padrão) */
+/* ✅ Badge "ESGOTADO" (canto superior esquerdo) */
+.produto-badge {
+  position: absolute;
+  top: 18px;
+  left: -18px;          /* puxa pra fora pra pegar o canto */
+  z-index: 2;
+
+  padding: 10px 44px;   /* mais comprido pra parecer faixa */
+  border-radius: 999px;
+
+  background: #2b2b2b;
+  color: #ffffff;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+
+  transform: rotate(-12deg); /* ✅ diagonal */
+  transform-origin: left center;
+
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Moldura da imagem dentro do card */
 .produto-imgWrap {
   width: 100%;
   max-width: 240px;
@@ -136,15 +155,27 @@
   display: block;
 }
 
-/* =========================================================
-   ✅ BIG (moletons): aumenta card + moldura + imagem
-   ========================================================= */
+/* Preço embaixo */
+.produto-preco {
+  margin: 0;
+  padding: 8px 12px;
 
+  border-radius: 999px;
+  border: 1px solid rgba(201, 110, 56, 0.25);
+  background: rgba(201, 110, 56, 0.06);
+
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.2px;
+}
+
+/* =========================================================
+   BIG (moletons)
+   ========================================================= */
 .produto-card.produto-card--big {
   min-height: 420px;
   padding: 24px;
-  align-items: center;
-  justify-content: center;
 }
 
 .produto-card.produto-card--big .produto-imgWrap {
@@ -166,44 +197,86 @@
 }
 
 /* =========================================================
-   ✅ COPO: menor ainda (mais delicado)
+   COPO (menor ainda)
    ========================================================= */
+.produto-card.produto-card--copo {
+  min-height: 350px;
+  padding: 20px;
+}
 
-   .produto-card.produto-card--copo {
-    min-height: 350px;  /* era 390 */
-    padding: 20px;
+.produto-card.produto-card--copo .produto-imgWrap {
+  width: 220px;
+  height: 285px;
+
+  max-width: none;
+  aspect-ratio: auto;
+
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.produto-card.produto-card--copo .produto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+  .produtos {
+    padding: 2.5rem 1.2rem;
   }
-  
-  .produto-card.produto-card--copo .produto-imgWrap {
-    width: 220px;   /* era 250 */
-    height: 285px;  /* era 320 */
-  
-    max-width: none;
-    aspect-ratio: auto;
-  
-    padding: 10px;  /* mais compacto */
-    border-radius: 16px;
+
+  .produtos-container {
+    max-width: 100%;
   }
-  
-  .produto-card.produto-card--copo .produto-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+
+  .produtos-title {
+    font-size: clamp(2.1rem, 7vw, 3rem);
+  }
+
+  .produtos-frame {
+    padding: 18px;
     border-radius: 12px;
   }
-  
-  /* responsivo */
-  @media (max-width: 900px) {
-    .produto-card.produto-card--copo .produto-imgWrap {
-      width: 205px;
-      height: 265px;
-    }
+
+  .produtos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
-  
-  @media (max-width: 700px) {
-    .produto-card.produto-card--copo .produto-imgWrap {
-      width: 190px;
-      height: 245px;
-    }
+
+  .produtos-stack {
+    gap: 18px;
   }
-  
+
+  .produto-card.produto-card--big .produto-imgWrap {
+    width: 300px;
+    height: 300px;
+  }
+
+  .produto-card.produto-card--copo .produto-imgWrap {
+    width: 205px;
+    height: 265px;
+  }
+}
+
+@media (max-width: 700px) {
+  .produtos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .produto-imgWrap {
+    max-width: 220px;
+  }
+
+  .produto-card.produto-card--big .produto-imgWrap {
+    width: 280px;
+    height: 280px;
+  }
+
+  .produto-card.produto-card--copo .produto-imgWrap {
+    width: 190px;
+    height: 245px;
+  }
+}

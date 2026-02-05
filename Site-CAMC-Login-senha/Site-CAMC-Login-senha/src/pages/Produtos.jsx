@@ -1,4 +1,3 @@
-// src/pages/Produtos.jsx
 import React from "react";
 import "../css/Produtos.css";
 
@@ -17,12 +16,17 @@ import moletom2 from "../assets/moletom2.png";
 
 import copo from "../assets/copo.png";
 
-function ProdutoCard({ fotoUrl, variant }) {
+function ProdutoCard({ fotoUrl, variant, preco, esgotado }) {
   return (
     <article className={`produto-card ${variant ? `produto-card--${variant}` : ""}`}>
+      {/* Badge ESGOTADO */}
+      {esgotado && <span className="produto-badge">ESGOTADO</span>}
+
       <div className={`produto-imgWrap ${variant ? `produto-imgWrap--${variant}` : ""}`}>
         <img className="produto-img" src={fotoUrl} alt="Produto" />
       </div>
+
+      <p className="produto-preco">{preco}</p>
     </article>
   );
 }
@@ -38,18 +42,15 @@ function ProdutoSection({ titulo, itens, emptyText }) {
         <p className="produtos-empty">{emptyText || "Em breve!"}</p>
       ) : (
         <div className="produtos-grid">
-          {itens.map((item, idx) => {
-            const fotoUrl = typeof item === "string" ? item : item.fotoUrl;
-            const variant = typeof item === "string" ? undefined : item.variant;
-
-            return (
-              <ProdutoCard
-                key={`${titulo}-${idx}`}
-                fotoUrl={fotoUrl}
-                variant={variant}
-              />
-            );
-          })}
+          {itens.map((item, idx) => (
+            <ProdutoCard
+              key={`${titulo}-${idx}`}
+              fotoUrl={item.fotoUrl}
+              variant={item.variant}
+              preco={item.preco}
+              esgotado={item.esgotado}
+            />
+          ))}
         </div>
       )}
     </section>
@@ -57,16 +58,24 @@ function ProdutoSection({ titulo, itens, emptyText }) {
 }
 
 export default function Produtos() {
-  const adesivos = [ad1, ad2, ad3, ad4, ad5, ad6, ad7, ad8, ad9];
-
-  // ✅ moletons maiores
-  const roupas = [
-    { fotoUrl: moletom1, variant: "big" },
-    { fotoUrl: moletom2, variant: "big" },
+  const adesivos = [
+    { fotoUrl: ad1, preco: "R$ 4,00", esgotado: true },
+    { fotoUrl: ad2, preco: "R$ 4,00", esgotado: true },
+    { fotoUrl: ad3, preco: "R$ 4,00", esgotado: true }, 
+    { fotoUrl: ad4, preco: "R$ 4,00", esgotado: true },
+    { fotoUrl: ad5, preco: "R$ 4,00", esgotado: true },
+    { fotoUrl: ad6, preco: "R$ 4,00", esgotado: true },
+    { fotoUrl: ad7, preco: "R$ 4,00", esgotado: true },
+    { fotoUrl: ad8, preco: "R$ 4,00", esgotado: true },
+    { fotoUrl: ad9, preco: "R$ 4,00", esgotado: true},
   ];
 
-  // ✅ copo com formato vertical (não quadrado)
-  const copos = [{ fotoUrl: copo, variant: "copo" }];
+  const roupas = [
+    { fotoUrl: moletom1, variant: "big", preco: "R$ 120,00", esgotado: true },
+    { fotoUrl: moletom2, variant: "big", preco: "R$ 120,00", esgotado: true }, 
+  ];
+
+  const copos = [{ fotoUrl: copo, variant: "copo", preco: "R$ 40,00", esgotado: true }];
 
   return (
     <main className="produtos">
