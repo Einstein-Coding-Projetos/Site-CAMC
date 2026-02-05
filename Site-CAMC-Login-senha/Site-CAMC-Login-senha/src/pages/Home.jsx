@@ -34,13 +34,21 @@ function Home() {
 
             <ul className="camc-list">
               <li>
-                <strong>Missão:</strong> ...
+                <strong>Missão:</strong> {""}
+                Promover a integração acadêmica, científica e profissional dos
+                estudantes incentivando o pensamento crítico, a inovação e o
+                compromisso social, inspirados pelo legado de Marie Curie e pela
+                aplicação do conhecimento científico em benefício da saúde
               </li>
               <li>
                 <strong>Valores:</strong> ...
               </li>
               <li>
-                <strong>Foco:</strong> ...
+                <strong>Foco:</strong> {""}
+                Atuar no fortalecimento da formação acadêmica na área da saúde e
+                da engenharia, estimulando a interdisciplinaridade, a pesquisa
+                científica, a inovação tecnológica e o impacto positivo na
+                saúde.
               </li>
             </ul>
           </div>
