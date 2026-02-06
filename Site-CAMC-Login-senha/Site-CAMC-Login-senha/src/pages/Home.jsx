@@ -1,64 +1,81 @@
 import "../css/Home.css";
-
-// CORREÇÃO: Comentando a importação da imagem que está faltando.
-// import HeroImage from '../assets/hero-bg.jpg';
+import MarieCurieImg from "../assets/Marie-Curie-Sticker.jpg";
 
 function Home() {
-  // Definimos uma variável nula para não quebrar o código nas tags <img>
-  const HeroImage = null;
-
   return (
-    <div className="home-page">
-      {/* 1. SEÇÃO HERO / INTRODUÇÃO */}
+    <main className="home-page">
+      {/* ================= HERO ================= */}
       <section className="hero-section">
-        <div className="hero-content">
+        <div className="hero-container">
           <h1 className="hero-title">Centro Acadêmico Marie Curie</h1>
           <p className="hero-subtitle">Engenharia Biomédica Einstein</p>
+
           <a href="/eventos" className="hero-btn">
-            VER EVENTOS
+            Ver eventos
           </a>
         </div>
       </section>
 
-      {/* 2. SEÇÃO O QUE É O CAMC? (Missão) */}
-      <section className="section-camc scroll-reveal">
-        <h2 className="section-title">O Que É o CAMC?</h2>
-        <div className="camc-content">
-          <p>
-            O Centro Acadêmico Marie Curie (CAMC) é a entidade de representação
-            estudantil do curso de Engenharia Biomédica. Nossa missão é ser a
-            ponte entre o corpo discente, a coordenação e o mercado de trabalho.
-          </p>
-          <ul>
-            <li>**Missão:** ...</li>
-            <li>**Valores:** ...</li>
-            <li>**Foco:** ...</li>
-          </ul>
-        </div>
-      </section>
+      {/* ================= SOBRE ================= */}
+      <section className="section section-camc">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-eyebrow">Sobre</span>
+            <h2 className="section-title">O que é o CAMC?</h2>
+          </div>
 
-      {/* 3. SEÇÃO MARIE CURIE */}
-      <section className="section-curie scroll-reveal">
-        <h2 className="section-title curie-title">
-          Nossa Inspiração: Marie Curie
-        </h2>
-        <div className="curie-content">
-          {/* O src está usando a variável nula. Adicione uma imagem real aqui quando tiver! */}
-          <img
-            src={HeroImage || "https://via.placeholder.com/350x350"}
-            alt="Marie Curie"
-            className="curie-image"
-          />
-          <div className="curie-text">
-            <p>Marie Skłodowska-Curie, ...</p>
+          <div className="camc-content">
             <p>
-              Seu legado de dedicação à ciência e quebra de barreiras inspira o
-              CAMC ...
+              O Centro Acadêmico Marie Curie (CAMC) é a entidade de
+              representação estudantil do curso de Engenharia Biomédica. Atuamos
+              como ponte entre o corpo discente, a coordenação e o mercado de
+              trabalho.
             </p>
+
+            <ul className="camc-list">
+              <li>
+                <strong>Missão:</strong> {""}
+                Promover a integração acadêmica, científica e profissional dos
+                estudantes incentivando o pensamento crítico, a inovação e o
+                compromisso social, inspirados pelo legado de Marie Curie e pela
+                aplicação do conhecimento científico em benefício da saúde
+              </li>
+              <li>
+                <strong>Valores:</strong> ...
+              </li>
+              <li>
+                <strong>Foco:</strong> {""}
+                Atuar no fortalecimento da formação acadêmica na área da saúde e
+                da engenharia, estimulando a interdisciplinaridade, a pesquisa
+                científica, a inovação tecnológica e o impacto positivo na
+                saúde.
+              </li>
+            </ul>
           </div>
         </div>
       </section>
-    </div>
+
+      {/* ================= MARIE CURIE ================= */}
+      <section className="section section-curie">
+        <div className="section-container curie-grid">
+          <div className="curie-text">
+            <span className="section-eyebrow">Inspiração</span>
+            <h2 className="section-title">Marie Curie</h2>
+
+            <p>
+              Marie Skłodowska-Curie foi uma cientista pioneira, reconhecida por
+              sua dedicação à pesquisa e por romper barreiras na ciência.
+            </p>
+            <p>
+              Seu legado inspira o CAMC a promover conhecimento, equidade e
+              inovação.
+            </p>
+          </div>
+
+          <img src={MarieCurieImg} alt="Marie Curie" className="curie-image" />
+        </div>
+      </section>
+    </main>
   );
 }
 

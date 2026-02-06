@@ -1,159 +1,191 @@
-/* src/css/Home.css */
-
-/* --- VARIÁVEIS DE COR CAMC (Para referência) --- */
+/* ================================
+   VARIÁVEIS CAMC
+================================ */
 :root {
-    --color-primary: #944516; /* Laranja Terroso Principal */
-    --color-secondary: #c96e38; /* Destaque */
-    --color-text: #333333; /* Cor do texto escuro */
-    --color-text-light: #ffffff; /* Cor do texto claro */
-    --color-background-light: #f7f7f7;
-    --color-background-neutral: #FBF6EF; /* NOVO: BEGE CLARO PARA O HERO SECTION */
+  --color-primary: #944516;
+  --color-secondary: #c96e38;
+  --color-text: #2f2f2f;
+  --color-text-light: #ffffff;
+  --color-background-light: #f7f7f7;
+  --color-background-neutral: #fbf6ef;
 }
-/* ------------------------------------------------ */
 
+/* ================================
+   BASE
+================================ */
+.home-page {
+  width: 100%;
+  overflow-x: hidden;
+}
 
-/* ===== 1. SEÇÃO HERO (AJUSTADA PARA BEGE CLARO) ===== */
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-eyebrow {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  color: var(--color-primary);
+}
+
+/* ================================
+   HERO
+================================ */
 .hero-section {
-    /* Altura da tela cheia ou ajustável */
-    height: 85vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-    /* MUDANÇA AQUI: USANDO O BEGE CLARO */
-    background-color: var(--color-background-neutral); /* #FBF6EF */
-    
-    /* MUDANÇA AQUI: TEXTO ESCURO PARA CONTRASTAR COM O FUNDO CLARO */
-    color: var(--color-text); /* #333333 */
-    
-    background-size: cover;
-    background-position: center;
-    position: relative;
+  min-height: 85vh;
+  background-color: var(--color-background-neutral);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-container {
+  max-width: 800px;
+  padding: 0 1.5rem;
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-    /* Usa o texto escuro, mas poderia ser a cor primária (marrom) para mais destaque */
-    color: var(--color-text); 
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.8rem;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--color-text); /* #333333 */
-    margin-bottom: 2rem;
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 2.5rem;
 }
 
-/* O botão Hero permanece com as cores terrosas */
 .hero-btn {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: var(--color-secondary);
-    color: var(--color-text-light); /* Texto do botão deve ser branco */
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 999px;
 }
 
 .hero-btn:hover {
-    background-color: var(--color-primary);
+  background-color: var(--color-primary);
 }
 
-
-/* ===== 2. ESTILOS GERAIS DE SEÇÃO ===== */
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--color-primary);
-    margin-bottom: 2rem;
-    padding-top: 2rem;
-}
-
+/* ================================
+   SOBRE CAMC
+================================ */
 .section-camc {
-    padding: 4rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-    background-color: var(--color-background-light);
+  background-color: var(--color-background-light);
 }
 
-.camc-content p, .camc-content li {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: var(--color-text);
-    margin-bottom: 1rem;
-    text-align: left;
+.camc-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.camc-content ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-    display: inline-block;
+.camc-content p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  margin-bottom: 2rem;
+  color: var(--color-text);
 }
 
-/* ===== 3. SEÇÃO MARIE CURIE ===== */
+.camc-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.camc-list li {
+  background-color: #ffffff;
+  padding: 1.8rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+}
+
+.camc-list strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+/* ================================
+   MARIE CURIE
+================================ */
 .section-curie {
-    padding: 4rem 2rem;
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
-.curie-title {
-    border-bottom: 3px solid var(--color-secondary);
-    display: inline-block;
-    padding-bottom: 10px;
-    margin: 0 auto 3rem auto;
-}
-
-.curie-content {
-    display: flex;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-    align-items: center;
-}
-
-.curie-image {
-    width: 40%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    object-fit: cover;
-}
-
-.curie-text {
-    width: 60%;
-    text-align: left;
+.curie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 }
 
 .curie-text p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: var(--color-text);
-    margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
 }
 
-/* Responsividade */
+.curie-image {
+  width: 100%;
+  max-width: 420px;
+  justify-self: center;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  object-fit: cover;
+}
+
+/* ================================
+   RESPONSIVO
+================================ */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    .curie-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .curie-image, .curie-text {
-        width: 100%;
-        max-width: 400px;
-        margin-bottom: 20px;
-    }
-    .curie-text {
-        text-align: center;
-    }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .camc-list {
+    grid-template-columns: 1fr;
+  }
+
+  .curie-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .curie-image {
+    max-width: 300px;
+  }
 }
