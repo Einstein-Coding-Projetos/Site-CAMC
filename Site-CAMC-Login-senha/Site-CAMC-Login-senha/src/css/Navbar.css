@@ -29,13 +29,28 @@
 /* ================================
    BRAND
 ================================ */
-.navbar-brand a {
+.navbar-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
   font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: 0.5px;
+
   color: var(--color-text-light);
   text-decoration: none;
 }
+.navbar-brand-link:hover {
+  color: var(--color-text-light);
+}
+
+.navbar-brand-link img {
+  height: 70px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
 
 /* ================================
    LINKS
