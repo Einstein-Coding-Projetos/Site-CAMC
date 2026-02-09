@@ -1,5 +1,7 @@
 import "../css/Home.css";
 import MarieCurieImg from "../assets/Marie-Curie-Sticker.jpg";
+import camcFechada from "../assets/camc-fechada.png";
+import camcAberta from "../assets/camc-aberta.png";
 
 function Home() {
   return (
@@ -7,7 +9,21 @@ function Home() {
       {/* ================= HERO ================= */}
       <section className="hero-section">
         <div className="hero-container">
-          <h1 className="hero-title">Centro Acadêmico Marie Curie</h1>
+          <h1 className="hero-title">CENTRO ACADÊMICO MARIE CURIE</h1>
+
+          <div className="camc-logo-container">
+            <img
+              src={camcFechada}
+              alt="Logo CAMC fechada"
+              className="camc-logo logo-fechada"
+            />
+            <img
+              src={camcAberta}
+              alt="Logo CAMC aberta"
+              className="camc-logo logo-aberta"
+            />
+          </div>
+
           <p className="hero-subtitle">Engenharia Biomédica Einstein</p>
 
           <a href="/eventos" className="hero-btn">
@@ -34,21 +50,20 @@ function Home() {
 
             <ul className="camc-list">
               <li>
-                <strong>Missão:</strong> {""}
-                Promover a integração acadêmica, científica e profissional dos
-                estudantes incentivando o pensamento crítico, a inovação e o
-                compromisso social, inspirados pelo legado de Marie Curie e pela
-                aplicação do conhecimento científico em benefício da saúde
+                <strong>Missão:</strong> Promover a integração acadêmica,
+                científica e profissional dos estudantes incentivando o
+                pensamento crítico, a inovação e o compromisso social,
+                inspirados pelo legado de Marie Curie e pela aplicação do
+                conhecimento científico em benefício da saúde
               </li>
               <li>
                 <strong>Valores:</strong> ...
               </li>
               <li>
-                <strong>Foco:</strong> {""}
-                Atuar no fortalecimento da formação acadêmica na área da saúde e
-                da engenharia, estimulando a interdisciplinaridade, a pesquisa
-                científica, a inovação tecnológica e o impacto positivo na
-                saúde.
+                <strong>Foco:</strong> Atuar no fortalecimento da formação
+                acadêmica na área da saúde e da engenharia, estimulando a
+                interdisciplinaridade, a pesquisa científica, a inovação
+                tecnológica e o impacto positivo na saúde.
               </li>
             </ul>
           </div>
@@ -75,6 +90,27 @@ function Home() {
           <img src={MarieCurieImg} alt="Marie Curie" className="curie-image" />
         </div>
       </section>
+
+      {/* ================= FOOTER ================= */}
+      <footer className="footer">
+        <div className="footer-container">
+          <span className="footer-brand">CAMC</span>
+
+          <div className="footer-links">
+            <a href="mailto:contato@camc.org.br">contato@camc.org.br</a>
+            <a
+              href="https://instagram.com/camc"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import "../css/NavBar.css";
+import logoCamc from "../assets/camc-fechada.png";
 
 function NavBar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <Link to="/">Site CAMC</Link>
+          <Link to="/" className="navbar-brand-link">
+            <img src={logoCamc} alt="Logo CAMC" />
+            <span>Site CAMC</span>
+          </Link>
         </div>
 
         <div className="navbar-links">
