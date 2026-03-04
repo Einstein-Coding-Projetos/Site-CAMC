@@ -67,6 +67,8 @@
   text-decoration: none;
   padding: 0;
   position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.09rem;
 }
 
 /* Hover sofisticado (linha discreta) */

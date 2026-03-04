@@ -9,7 +9,7 @@
 /* ===== Estrutura igual Eventos ===== */
 .produtos {
   padding: 3rem 2rem;
-  background: #ffffff;
+  background: var(--color-background-neutral, #fbf6ef);
 }
 
 .produtos-container {
@@ -23,9 +23,11 @@
   color: var(--color-primary, #944516);
   margin: 0 0 2rem 0;
   font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.4px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
 }
 
 /* conteúdo centralizado */
@@ -41,11 +43,14 @@
   flex-direction: column;
   gap: 26px;
   align-items: center;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 /* ===== Card grande (moldura externa estilo Eventos) ===== */
 .produtos-frame {
-  width: 100%;
+  width: 50%;
   max-width: 1200px;
   margin: 0 auto;
 
@@ -61,7 +66,7 @@
   text-align: left;
   color: var(--color-primary, #944516);
   font-size: 2.05rem;
-  font-weight: 800;
+  font-weight: 500;
   margin: 0 0 1.6rem 0;
 }
 
