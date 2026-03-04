@@ -32,7 +32,7 @@ function Home() {
         </div>
       </section>
 
-      {/* ================= SOBRE ================= */}
+            {/* ================= SOBRE ================= */}
       <section className="section section-camc">
         <div className="section-container">
           <div className="section-header">
@@ -40,36 +40,31 @@ function Home() {
             <h2 className="section-title">O que é o CAMC?</h2>
           </div>
 
-          <div className="camc-content">
-            <p>
-              O Centro Acadêmico Marie Curie (CAMC) é a entidade de
-              representação estudantil do curso de Engenharia Biomédica. Atuamos
-              como ponte entre o corpo discente, a coordenação e o mercado de
-              trabalho.
-            </p>
+          {/* ADICIONE A CLASSE AQUI PARA O CSS FUNCIONAR */}
+          <p className="camc-intro-text">
+            O Centro Acadêmico Marie Curie (CAMC) é a entidade de representação estudantil do curso de Engenharia Biomédica. Nossa missão transcende a representação formal: buscamos atuar como ecossistema de crescimento, promovendo eventos que democratizam o conhecimento e integram o corpo discente à coordenação e às tendências do mercado de trabalho.
+          </p>
 
-            <ul className="camc-list">
-              <li>
-                <strong>Missão:</strong> Promover a integração acadêmica,
-                científica e profissional dos estudantes incentivando o
-                pensamento crítico, a inovação e o compromisso social,
-                inspirados pelo legado de Marie Curie e pela aplicação do
-                conhecimento científico em benefício da saúde
-              </li>
-              <li>
-                <strong>Valores:</strong> ...
-              </li>
-              <li>
-                <strong>Foco:</strong> Atuar no fortalecimento da formação
-                acadêmica na área da saúde e da engenharia, estimulando a
-                interdisciplinaridade, a pesquisa científica, a inovação
-                tecnológica e o impacto positivo na saúde.
-              </li>
-            </ul>
-          </div>
+          {/* Certifique-se de que a lista usa a classe dos cards */}
+          <ul className="camc-cards-container">
+            <li className="camc-card-item">
+              <span className="camc-card-title">Missão</span>
+              <p className="camc-card-description">Representar e potencializar a jornada dos estudantes de Engenharia Biomédica, sendo o elo estratégico entre o corpo discente, a coordenação e o mercado.</p>
+            </li>
+            <li className="camc-card-item">
+              <span className="camc-card-title">Valores</span>
+              <p className="camc-card-description">Equidade</p>
+              <p className="camc-card-description">Transparência </p>
+              <p className="camc-card-description">Inovação </p>
+              <p className="camc-card-description">Integração</p>
+            </li>
+            <li className="camc-card-item">
+              <span className="camc-card-title">Foco</span>
+              <p className="camc-card-description">Contribuir para a formação integral do aluno, promovendo eventos, networking e atualização científica para transformar o aprendizado em impacto real na saúde.</p>
+            </li>
+          </ul>
         </div>
       </section>
-
       {/* ================= MARIE CURIE ================= */}
       <section className="section section-curie">
         <div className="section-container curie-grid">
@@ -78,12 +73,7 @@ function Home() {
             <h2 className="section-title">Marie Curie</h2>
 
             <p>
-              Marie Skłodowska-Curie foi uma cientista pioneira, reconhecida por
-              sua dedicação à pesquisa e por romper barreiras na ciência.
-            </p>
-            <p>
-              Seu legado inspira o CAMC a promover conhecimento, equidade e
-              inovação.
+            O Centro Acadêmico Marie Curie fundamenta sua identidade no legado de uma das maiores mentes da ciência, cuja trajetória personifica os pilares de inovação, equidade e promoção do conhecimento. Sua história de resiliência em espaços historicamente restritos inspira a busca contínua por um ambiente acadêmico mais inclusivo, reafirmando que o saber científico deve ser um bem universal, voltado inteiramente ao progresso coletivo e à transformação social.
             </p>
           </div>
 
@@ -94,7 +84,7 @@ function Home() {
       {/* ================= FOOTER ================= */}
       <footer className="footer">
         <div className="footer-container">
-          <span className="footer-brand">CAMC</span>
+          <span className="footer-brand"></span>
 
           <div className="footer-links">
             <a href="mailto:contato@camc.org.br">contato@camc.org.br</a>

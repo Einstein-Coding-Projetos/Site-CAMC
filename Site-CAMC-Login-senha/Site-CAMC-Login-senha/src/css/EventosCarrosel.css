@@ -86,7 +86,7 @@
 .cardTitle {
   margin: 0;
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 500;
   color: var(--color-primary, #944516);
 
   /* 🔒 corta se o título for grande demais */

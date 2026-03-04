@@ -1,57 +1,106 @@
 /* ================================
    VARIÁVEIS CAMC
-================================ */
+=============================== */
 :root {
   --color-primary: #944516;
   --color-secondary: #c96e38;
   --color-text: #2f2f2f;
   --color-text-light: #ffffff;
-  --color-background-light: #f7f7f7;
+  --color-background-light: #ffffff;
   --color-background-neutral: #fbf6ef;
+  --color-marie: #f6eee7
 }
+
+
+/* Importando Poppins e Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600&family=Poppins:wght@400;600;700&display=swap');
 
 /* ================================
    BASE
 ================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-background-neutral);
+  color: var(--color-text);
+}
+
 .home-page {
   width: 100%;
   overflow-x: hidden;
 }
 
+/* ================================
+   SEÇÕES E CABEÇALHOS
+================================ */
 .section {
   padding: 5rem 2rem;
 }
 
+/* DIVISÃO DE CORES: Section específica para os Cards */
+.section-camc {
+  background-color: var(--color-background-light); /* Cor diferente para separar */
+}
+
 .section-container {
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
 .section-header {
   text-align: center;
   margin-bottom: 3rem;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
 }
 
 .section-eyebrow {
   display: block;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.75rem;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-secondary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .section-title {
-  font-size: 2.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
   color: var(--color-primary);
+  line-height: 1.2;
+  text-transform: none !important;
+  margin-top: 2px;
+}
+
+/* Texto introdutório antes dos cards */
+.camc-intro-text {
+  display: block;           /* Garante que ocupe a linha toda */
+  width: 100%;              /* Ocupa a largura total do container */
+  max-width: 900px;         /* Limita a largura para não ficar esticado demais */
+  margin: 0 auto 4rem;      /* Centraliza o bloco e dá espaço embaixo */
+  
+  /* MUDANÇA DE ALINHAMENTO AQUI */
+  text-align: justify;      /* Opções: left, center, right, justify */
+  
+  line-height: 1.8;         /* Melhora a leitura */
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 /* ================================
    HERO
 ================================ */
 .hero-section {
-  min-height: 85vh;
+  min-height: 100vh;
   background-color: var(--color-background-neutral);
   display: flex;
   align-items: center;
@@ -59,150 +108,41 @@
   text-align: center;
 }
 
-.hero-container {
-  max-width: 800px;
-  padding: 0 1.5rem;
-}
-
 .hero-title {
-  font-family: 'Poppins', sans-serif;
   font-size: 3.4rem;
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: 0.03;
-  color: #944516;
-  margin-bottom: 0.6rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .hero-subtitle {
+  font-size: 1rem;
+  font-weight: 10;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  color: #6d4024;
-  margin-bottom: 1.4rem;
 }
 
 .hero-btn {
   display: inline-block;
-  padding: 0.9rem 2.2rem;
+  padding: 0.9rem 2.4rem;
   background-color: var(--color-secondary);
   color: var(--color-text-light);
   text-decoration: none;
   font-weight: 600;
   border-radius: 999px;
-}
-
-.hero-btn:hover {
-  background-color: var(--color-primary);
+  transition: all 0.3s ease;
 }
 
 /* ================================
-   SOBRE CAMC
-================================ */
-.section-camc {
-  background-color: var(--color-background-light);
-}
-
-.camc-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.camc-content p {
-  font-size: 1.15rem;
-  line-height: 1.9;
-  margin-bottom: 2rem;
-  color: var(--color-text);
-}
-
-.camc-list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.camc-list li {
-  background-color: #ffffff;
-  padding: 1.8rem;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  font-size: 0.95rem;
-}
-
-.camc-list strong {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--color-primary);
-}
-
-/* ================================
-   MARIE CURIE
-================================ */
-.section-curie {
-  background-color: #ffffff;
-}
-
-.curie-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.curie-text p {
-  font-size: 1.05rem;
-  line-height: 1.9;
-  color: var(--color-text);
-  margin-bottom: 1.5rem;
-}
-
-.curie-image {
-  width: 100%;
-  max-width: 420px;
-  justify-self: center;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-  object-fit: cover;
-}
-
-/* ================================
-   RESPONSIVO
-================================ */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .camc-list {
-    grid-template-columns: 1fr;
-  }
-
-  .curie-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    text-align: center;
-  }
-
-  .curie-image {
-    max-width: 300px;
-  }
-}
-/* ================================
-   LOGO CAMC – ANIMAÇÃO
+   LOGO ANIMAÇÃO
 ================================ */
 .camc-logo-container {
   position: relative;
-  width: 230px;
-  height: 150px;
-  margin: 22px auto 16px;
+  width: 210px;
+  height: 140px;
+  margin: 0 auto 1.2rem;
   cursor: pointer;
 }
 
@@ -214,63 +154,174 @@
   transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
-.logo-fechada {
-  opacity: 1;
-  transform: scale(1);
-}
+.logo-aberta { opacity: 0; transform: scale(1.05); }
+.camc-logo-container:hover .logo-fechada { opacity: 0; }
+.camc-logo-container:hover .logo-aberta { opacity: 1; }
 
-.logo-aberta {
-  opacity: 0;
-  transform: scale(1.1);
-}
-
-.camc-logo-container:hover .logo-fechada {
-  opacity: 0;
-  transform: scale(1.03);
-}
-
-.camc-logo-container:hover .logo-aberta {
-  opacity: 1;
-  transform: scale(1.1);
-}
 /* ================================
-   FOOTER
+SOBRE
+================================ */
+
+/* Container dos 3 cards */
+.camc-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+  margin-top: 30px !important;
+}
+
+/* A caixinha branca individual */
+.camc-card-item {
+  background: #ffffff;      /* Garante que o card seja branco */
+  border-radius: 20px;
+  padding: 45px 50px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+  min-height: 300px;
+}
+
+
+.camc-card-item:hover {
+  transform: translateY(-5px); /* Efeito suave ao passar o mouse */
+}
+
+.camc-card-title {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;          /* Negrito pesado */
+  font-size: 1.3rem;         /* Tamanho maior que o texto */
+  color: var(--color-primary); /* Cor da sua identidade */
+  margin-bottom: 15px;       /* Espaço para o texto */
+  text-transform: uppercase;  
+  letter-spacing: 4px;    /* Pode usar uppercase se preferir */
+}
+
+.camc-card-description {
+  font-weight: 400;          /* Texto mais leve */
+  font-size: 0.95rem;
+  color: #555555;            /* Cinza para leitura agradável */
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ================================
+   SEÇÃO MARIE CURIE
+================================ */
+.section-curie {
+  background-color: var(--color-background-neutral); /* Ou use var(--color-marie) se já tiver definido */
+  padding: 6rem 2rem;
+}
+
+.curie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide em duas colunas iguais */
+  gap: 4rem;
+  align-items: center; /* Alinha o texto e a imagem pelo centro vertical */
+}
+
+.curie-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.curie-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  text-align: justify; /* Mantém o padrão de texto que você pediu antes */
+}
+
+.curie-image {
+  width: 70%;
+  max-width: 500px; /* Evita que a imagem fique gigante em telas grandes */
+  height: auto;
+  border-radius: 30px; /* Bordas arredondadas para combinar com os cards */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  justify-self: center; /* Centraliza a imagem na coluna dela */
+  transform: translateY(50px);
+}
+
+/* ================================
+   FOOTER (RODAPÉ)
 ================================ */
 .footer {
-  background-color: #8b4215; /* mesma da navbar */
-  margin-top: 6rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: 4rem 2rem;
 }
 
 .footer-container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 1.6rem 1.5rem;
-
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Nome de um lado, links do outro */
   align-items: center;
 }
 
 .footer-brand {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #fff;
-  opacity: 0.9;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .footer-links {
   display: flex;
-  gap: 1.6rem;
+  gap: 2rem;
 }
 
 .footer-links a {
-  font-size: 0.8rem;
-  color: #fff;
-  opacity: 0.85;
+  color: var(--color-text-light);
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
 }
 
 .footer-links a:hover {
-  opacity: 1;
+  opacity: 0.7; /* Efeito simples de hover */
+}
+
+/* ================================
+   AJUSTES RESPONSIVOS (MOBILE)
+================================ */
+@media (max-width: 768px) {
+  .curie-grid {
+    grid-template-columns: 1fr; /* Em celulares, a imagem vai para baixo do texto */
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .curie-text p {
+    text-align: center; /* No mobile, texto centralizado fica melhor */
+  }
+
+  .footer-container {
+    flex-direction: column; /* No mobile, empilha o nome e os links */
+    gap: 2rem;
+  }
+
+  .footer-links {
+    flex-direction: column; /* Links um embaixo do outro no celular */
+    gap: 1rem;
+  }
+}
+
+/* ================================
+   RESPONSIVO
+================================ */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.4rem; }
+  .section-title { font-size: 2rem; }
+  .curie-grid { grid-template-columns: 1fr; }
+  .camc-card-item { width: 100%; }
 }
