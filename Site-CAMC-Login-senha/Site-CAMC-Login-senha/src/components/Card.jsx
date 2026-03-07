@@ -5,17 +5,27 @@ import "../css/Card.css";
 // O componente agora recebe 'data' para ser mais genérico
 // e ele precisa receber a 'description' dos seus eventos.
 // O componente agora recebe 'showButton' para controlar o botão
-function Card({ card, showButton = true, onImageClick }) {
+// O componente agora recebe 'showButton' para controlar o botão
+function Card({ card, showButton = true, onImageClick, onClick }) {
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={onClick}
+      style={{ cursor: onClick ? "pointer" : "default" }}
+    >
       {/* Imagem do card se existir */}
       {card.image && (
         <img
           src={card.image}
           alt={card.title}
           className="card-image"
-          onClick={() => showButton === false && onImageClick ? onImageClick(card.image) : null}
-          style={{ cursor: showButton === false && onImageClick ? 'pointer' : 'default' }}
+          onClick={(e) => {
+            if (showButton === false && onImageClick) {
+              e.stopPropagation(); // Prevent card onClick if clicking specifically the image
+              onImageClick(card.image);
+            }
+          }}
+          style={{ cursor: showButton === false && onImageClick ? 'zoom-in' : 'inherit' }}
         />
       )}
 
