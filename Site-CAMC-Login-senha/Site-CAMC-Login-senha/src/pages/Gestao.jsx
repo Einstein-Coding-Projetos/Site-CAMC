@@ -2,7 +2,7 @@
 import React from "react";
 import "../css/Gestao.css";
 
-import fotoBita from "../assets/bita.png";
+import fotoBita from "../assets/bita.jpeg";
 import fotoDaniel from "../assets/daniel.png";
 import fotoEmily from "../assets/emily.png";
 import fotoGabi from "../assets/gabi.png";
