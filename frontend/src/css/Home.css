@@ -1,6 +1,5 @@
-/* ================================
-   VARIÁVEIS CAMC
-=============================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600&family=Poppins:wght@400;600;700&display=swap');
+/* Importando Poppins e Montserrat */
 :root {
   --color-primary: #944516;
   --color-secondary: #c96e38;
@@ -12,8 +11,6 @@
 }
 
 
-/* Importando Poppins e Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600&family=Poppins:wght@400;600;700&display=swap');
 
 /* ================================
    BASE
